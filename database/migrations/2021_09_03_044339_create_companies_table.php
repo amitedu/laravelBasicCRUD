@@ -17,7 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('email')->unique();
-            $table->string('logo')->nullable();
+            $table->text('logo')->nullable();
             $table->string('website')->unique()->nullable();
             $table->timestamps();
         });

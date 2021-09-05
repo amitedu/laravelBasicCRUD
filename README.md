@@ -81,3 +81,42 @@ php artisan migrate --seed
 ```shell
 php artisan make:model Company --all
 ```
+8. File Upload
+    - HTML
+      - input type="file"
+      - put enctype="multipart/form-data"
+    - Model
+        - If you use `protected $fillable` then add the file field
+    - Validation Rules
+        - If it is image `image`. If it is file `file`
+        - `dimensions:min_width=100,min_height=100`
+    - Controller
+        - ```
+          $attributes = $companyStoreRequest->all();
+
+           if ($companyStoreRequest->logo) {
+               $attributes['logo'] = $companyStoreRequest->logo->store('companiesLogo');
+           }
+              
+           Company::create($attributes);
+          ```
+    - FILESYSTEM_DRIVER
+        - Change the `FILESYSTEM_DRIVER=public` in the `.env` file
+    - Storage link
+        - `php artisan storage:link`
+    - Change Links in `config/filesystem.php`. Directory name that you put in the store() method in the controller. ex: 'companiesLogo'
+        - ```PHP
+          'links' => [
+              public_path('<dir_name>') => storage_path('app/public/<dir_name>'),
+          ],
+          ```
+    - Now if you want see image on the page, use asset() helper or mutator method on the Model.
+        - asset() - `{{ asset('storage/) . $company->logo }}`
+        - Mutator
+        ```PHP
+        public function getLogoAttribute($value)
+        {
+            return asset('storage/' . $value);
+        }
+        ```
+      - If you use mutator then you can directly use `$company->logo`. You don't need to put asset() method.

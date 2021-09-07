@@ -27,8 +27,12 @@
                     >
                 </td>
                 <td class="px-4 py-3">
-                    <a href="{{ route('company.edit', ['company' => $company->id]) }}"
+                    <a href="{{ route('company.show', ['company' => $company]) }}"
                        class="px-2 py-1 bg-green-400 rounded text-white">
+                        Show
+                    </a>
+                    <a href="{{ route('company.edit', ['company' => $company->id]) }}"
+                       class="px-2 py-1 bg-green-400 rounded text-white ml-2">
                         Edit
                     </a>
                     <form action="{{ route('company.destroy', ['company' => $company->id]) }}" method="post"

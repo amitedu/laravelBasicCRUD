@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CompanyStoreRequest;
 use App\Http\Requests\CompanyUpdateRequest;
 use App\Models\Company;
+use App\Notifications\CompanyRegisterNotification;
 
 class CompanyController extends Controller
 {
@@ -37,11 +38,19 @@ class CompanyController extends Controller
             $attributes['logo'] = $companyStoreRequest->logo->store('companiesLogo');
         }
 
-        Company::create($attributes);
+        $company = Company::create($attributes);
+
+        $company->notify(new CompanyRegisterNotification());
 
         return view('company.index', [
             'companies' => Company::orderBy('id')->paginate(5)
         ]);
+    }
+
+
+    public function show(Company $company)
+    {
+        return view('company.show', ['company' => $company]);
     }
 
 

@@ -1,8 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-around">
-            <a href="{{ route('company.index') }}" class="text-xl font-semibold text-gray-800 leading-tight">{{__('Companies')}}</a>
-            <a href="" class="text-xl font-semibold text-gray-800 leading-tight">{{__('Employees')}}</a>
+            <a href="{{ route('company.index') }}"
+               class="text-xl font-semibold leading-tight border border-blue-500 px-4 py-2 rounded hover:bg-blue-600 bg-blue-500 text-white">{{__('Companies')}}</a>
+            <a href="{{ route('employees.index') }}"
+               class="text-xl font-semibold leading-tight border border-blue-500 px-4 py-2 rounded hover:bg-blue-600 bg-blue-500 text-white">{{__('Employees')}}</a>
         </div>
     </x-slot>
 

@@ -120,3 +120,15 @@ php artisan make:model Company --all
         }
         ```
       - If you use mutator then you can directly use `$company->logo`. You don't need to put asset() method.
+9. Mail
+    - ```PHP
+      php artisan make:notification CompanyRegisterNotification
+      ```
+    - In the `Company` model add `use Illuminate\Notifications\Notifiable;` and `use Notifiable` in the class.
+    - Set appropriate settings of the Mail section in the `.env` file.
+    - In the `CompanyController`, from where you want to send the mail
+        ```PHP
+            $company = Company::create($attributes);
+            $company->notify(new CompanyRegisterNotification());
+        ```
+

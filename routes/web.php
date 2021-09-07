@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,3 +35,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //Route::post('/company', [CompanyController::class, 'store'])->name('company.store');
 
 Route::resource('/company', CompanyController::class);
+Route::resource('/employees', EmployeeController::class);

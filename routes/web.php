@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Livewire\CompanyDataTable;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //});
 //Route::get('/company', [CompanyController::class, 'create'])->name('company');
 //Route::post('/company', [CompanyController::class, 'store'])->name('company.store');
+
+Route::get('/company/livewireDataTable', CompanyDataTable::class)->name('company.livewireDataTable');
 
 Route::resource('/company', CompanyController::class);
 Route::resource('/employees', EmployeeController::class);

@@ -38,11 +38,6 @@
                     Edit
                 </a>
 
-                <a href="{{ route('companies.employees.create', ['company' => $company->id]) }}"
-                   class="text-center border border-green-600 bg-green-600 text-white rounded-lg py-2 px-2 font-semibold mt-8">
-                    Add Employee
-                </a>
-
                 <a href="{{ route('company.index') }}"
                    class="text-center border border-gray-500 bg-gray-500 text-white rounded-lg py-2 px-2 font-semibold mt-8">
                     Cancel

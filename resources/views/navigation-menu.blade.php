@@ -11,10 +11,13 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-jet-nav-link>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex items-center">
+                    <a href="{{ route('company.index') }}"
+                       class="font-semibold text-xl border-b-2 border-transparent hover:border-indigo-700 py-4 {{ request()->routeIs('company.index') ? 'text-gray-500 border-b-2 border-indigo-400 focus:border-indigo-700 transition ' : '' }}"
+                    >{{__('Companies')}}</a>
+                    <a href="{{ route('employees.index') }}"
+                       class="font-semibold text-xl border-b-2 border-transparent hover:border-indigo-700 py-4 {{ request()->routeIs('employees.index') ? 'text-gray-500 border-b-2 border-indigo-400 focus:border-indigo-700 transition ' : '' }}"
+                    >{{__('Employees')}}</a>
                 </div>
             </div>
 

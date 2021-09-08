@@ -1,22 +1,23 @@
 <x-app-layout>
-    <div class="lg:container p-6 sm:px-20 bg-white border-b mx-auto border-gray-200">
+    <div class="lg:container p-6 sm:px-20 mx-auto border-gray-200">
         <div class="flex justify-between">
-            <h2 class="text-2xl font-bold ml-16 text-center">Companies</h2>
+            <h2 class="text-2xl font-bold md:ml-16 text-center">Companies</h2>
             <div>
                 <a href="{{ route('company.index') }}" class="px-4 py-2 border border-blue-500 bg-blue-500 text-white rounded ml-2 hover:bg-blue-600 font-semibold">Simple table</a>
                 <a href="{{ route('company.livewireDataTable') }}" class="px-4 py-2 border border-blue-500 bg-blue-500 text-white rounded ml-2 hover:bg-blue-600 font-semibold">Livewire DataTable</a>
-                <a href="" class="px-4 py-2 border border-blue-500 bg-blue-500 text-white rounded ml-2 hover:bg-blue-600 font-semibold">Yjra DataTable</a>
             </div>
         </div>
     </div>
 
     <!-- Table dark design -->
-    <div class="max-w-6xl px-2 mx-auto">
+    <div class="max-w-5xl px-2 mx-auto">
         <div class="flex justify-end">
             <a href="{{ route('company.create') }}"
-               class="mt-6 px-4 py-2 text-white font-bold bg-indigo-600 py-3 rounded-md hover:bg-indigo-400 transition duration-300"
+               class="mt-6 px-6 lg:mr-20 py-2 text-white font-bold bg-indigo-600 py-3 rounded-md hover:bg-indigo-700 transition duration-300"
             >
-                Create
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
             </a>
         </div>
         <table id="myTable"
@@ -41,7 +42,7 @@
                     </td>
                     <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
                         <div class="flex justify-between space-x-1">
-                            <a href="{{ route('company.show', ['company' => $company]) }}" class="text-gray-100 hover:text-gray-300 p-1">
+                        <a href="{{ route('company.show', ['company' => $company]) }}" class="text-gray-100 hover:text-gray-300 p-1">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                           d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>

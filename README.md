@@ -81,6 +81,7 @@ php artisan migrate --seed
 ```shell
 php artisan make:model Company --all
 ```
+- Don't forget to add fillable or guarded property in the Model.
 8. File Upload
     - HTML
       - input type="file"
@@ -131,4 +132,7 @@ php artisan make:model Company --all
             $company = Company::create($attributes);
             $company->notify(new CompanyRegisterNotification());
         ```
-
+10. Livewire
+- php artisan livewire:make CompanyDataTable
+11. Deployment on Hereku
+- 

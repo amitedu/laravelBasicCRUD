@@ -29,13 +29,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-//Route::prefix('company')->name('company.')->group(function() {
-//    Route::get('create', [CompanyController::class, 'create'])->name('create');
-//});
-//Route::get('/company', [CompanyController::class, 'create'])->name('company');
-//Route::post('/company', [CompanyController::class, 'store'])->name('company.store');
 
-Route::get('/company/livewireDataTable', CompanyDataTable::class)->name('company.livewireDataTable');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/company/livewireDataTable', CompanyDataTable::class)->name('company.livewireDataTable');
 
-Route::resource('/company', CompanyController::class);
-Route::resource('/employees', EmployeeController::class);
+    Route::resource('/company', CompanyController::class);
+    Route::resource('/employees', EmployeeController::class);
+});
